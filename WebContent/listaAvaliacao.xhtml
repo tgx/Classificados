@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core">
+<h:head>
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+	<title>Lista de Profissional</title>
+</h:head>
+<h:body>
+	<div>
+		<h:form id="tabela" enctype="multipart/form-data">
+			<h:dataTable value="#{avaliacaoMB.listaAvaliacao}" var="avaliacao">
+				<div>
+					<h:column>
+						<h:panelGrid columns="2" border="1">
+							<h:outputText value="Id: " />
+							<h:outputText value="#{avaliacao.idAvaliacao}" />
+							<h:outputText value="Avaliacao:  " />
+							<h:outputText value="#{avaliacao.nota}" />
+							<h:outputLabel value="Profissional: " />
+							<h:outputText value="#{avaliacao.profissional.nome}" />
+							<h:outputLabel value="Servico: " />
+							<h:outputText value="#{avaliacao.tipoServico.nmServico}" />
+						</h:panelGrid>
+						<br></br>
+					</h:column>
+
+				</div>
+
+			</h:dataTable>
+		</h:form>
+	</div>
+</h:body>
+</html>

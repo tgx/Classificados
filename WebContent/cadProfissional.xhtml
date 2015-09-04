@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:p="http://primefaces.prime.com.tr/ui">
+<h:head>
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+	<title>Cadastro de Profissional</title>
+</h:head>
+<h:body>
+	<h:form enctype="multipart/form-data">
+		<h:panelGrid columns="2">
+
+			Nome: <h:inputText value="#{profissionalMB.profissional.nome}" />
+			Email: <h:inputText value="#{profissionalMB.profissional.email}" />
+			senha: <h:inputSecret value="#{profissionalMB.profissional.senha}" />
+			Telefone: <h:inputText
+				value="#{profissionalMB.profissional.telefone}" />
+				
+			Tipo de serviço: <h:selectOneMenu
+				value="#{profissionalMB.tipoServico.idTipoServico}">
+				<f:selectItem noSelectionOption="true" itemLabel="-- Selecione --" />
+				<f:selectItems value="#{tipoServicoMB.listaServico}" var="servico"
+					itemLabel="#{servico.nmServico}"
+					itemValue="#{servico.idTipoServico}" />
+			</h:selectOneMenu>
+			
+			Descrição: <h:inputTextarea
+				value="#{profissionalMB.profissional.descricao}" />
+
+			<h:commandButton value="Salvar" action="#{profissionalMB.salvar}" />
+		</h:panelGrid>
+	</h:form>
+</h:body>
+</html>
