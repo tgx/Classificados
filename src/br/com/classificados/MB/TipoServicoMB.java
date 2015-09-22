@@ -13,14 +13,14 @@ import br.com.classificados.model.TipoServico;
 @ManagedBean
 public class TipoServicoMB {
 
-	private TipoServico servico = new TipoServico();
+	private TipoServico tipoServico = new TipoServico();
 
 	public TipoServico getServico() {
-		return servico;
+		return tipoServico;
 	}
 
-	public void setServico(TipoServico servico) {
-		this.servico = servico;
+	public void setServico(TipoServico tipoServico) {
+		this.tipoServico = tipoServico;
 	}
 
 	private List<TipoServico> listaServicos;
@@ -42,11 +42,11 @@ public class TipoServicoMB {
 		TipoServicoDAO dao = new TipoServicoDAO(em);
 
 		em.getTransaction().begin();
-		dao.salvar(servico);
+		dao.salvar(tipoServico);
 		em.getTransaction().commit();
 		em.close();
 
-		servico = new TipoServico();
+		tipoServico = new TipoServico();
 	}
 
 }

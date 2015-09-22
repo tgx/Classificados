@@ -3,8 +3,7 @@ package br.com.classificados.model;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
-import javax.persistence.JoinColumn;
-import javax.persistence.ManyToOne;
+import javax.persistence.OneToOne;
 
 @Entity(name = "tiposervico")
 public class TipoServico {
@@ -13,6 +12,9 @@ public class TipoServico {
 	@GeneratedValue
 	private Long idTipoServico;
 	private String nmServico;
+
+	@OneToOne
+	private Avaliacao avaliacao;
 
 	public Long getIdTipoServico() {
 		return idTipoServico;

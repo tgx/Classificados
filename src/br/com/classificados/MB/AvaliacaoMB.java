@@ -4,12 +4,14 @@ import java.util.List;
 
 import javax.faces.bean.ManagedBean;
 import javax.persistence.EntityManager;
+import javax.persistence.Query;
 import javax.persistence.TypedQuery;
 
 import br.com.classificados.DAO.AvaliacaoDAO;
 import br.com.classificados.factory.JPAUtil;
 import br.com.classificados.model.Avaliacao;
 import br.com.classificados.model.Profissional;
+import br.com.classificados.report.AvaliacaoReport;
 
 @ManagedBean(name = "avaliacaoMB")
 public class AvaliacaoMB {
@@ -50,6 +52,27 @@ public class AvaliacaoMB {
 		listaAvaliados = qry.getResultList();
 
 		return listaAvaliados;
+	}
+
+	private List<AvaliacaoReport> listaProfissionaisAvaliacao;
+
+	@SuppressWarnings("unchecked")
+	public List<AvaliacaoReport> getListAvaliacaoProfissional() {
+		EntityManager em = JPAUtil.getEntityManager();
+
+		String sql = "SELECT NEW br.com.classificados.report.AvaliacaoReport"
+				+ "(avg(a.nota), "
+				+ "a.profissional, "
+				+ "a.tipoServico, "
+				+ "count(a)) "
+				+ "FROM avaliacao a "
+				+ "GROUP BY a.tipoServico, "
+				+ "a.profissional";
+		Query qry = em.createQuery(sql);
+		listaProfissionaisAvaliacao = qry.getResultList();
+		em.close();
+
+		return listaProfissionaisAvaliacao;
 	}
 
 }

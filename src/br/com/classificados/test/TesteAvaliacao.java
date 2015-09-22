@@ -23,11 +23,28 @@ public class TesteAvaliacao {
 		Profissional pro = new Profissional();
 		TipoServico servico = new TipoServico();
 
-		servico = em.find(TipoServico.class, 1L); 	// Tipo de servico
-		pro = em.find(Profissional.class, 4L); 		// Id profissional
+		// Tipo de servico ***
+
+		// '1', 'Sorveteiro'
+		// '4', 'Pintor'
+		// '2', 'Pedreiro'
+		// '3', 'Padeiro'
+		// '5', 'Encanador'
+		// 6 - Diarista
+
+		servico = em.find(TipoServico.class, 6L);
+
+		// Id profissional
+		// 1 -
+		// 2 - Tiago
+		// 3 - Joaquim
+		// 4 - Maria
+		// 5- Fernanda
+
+		pro = em.find(Profissional.class, 4L);
 
 		avalia.setProfissional(pro);
-		avalia.setNota(3f);							// nota de avaliacao
+		avalia.setNota(5D); // nota de avaliacao
 		avalia.setTipoServico(servico);
 
 		em.persist(avalia);

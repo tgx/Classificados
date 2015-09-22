@@ -8,11 +8,11 @@ import javax.persistence.OneToOne;
 
 @Entity(name = "avaliacao")
 public class Avaliacao {
-
+	
 	@Id
 	@GeneratedValue
 	private Long idAvaliacao;
-	private float nota;
+	private Double nota;
 	// private Usuario usuario;
 
 	@OneToOne
@@ -35,11 +35,11 @@ public class Avaliacao {
 		return idAvaliacao;
 	}
 
-	public float getNota() {
+	public Double getNota() {
 		return nota;
 	}
 
-	public void setNota(float nota) {
+	public void setNota(Double nota) {
 		this.nota = nota;
 	}
 

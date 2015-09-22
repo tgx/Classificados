@@ -12,6 +12,9 @@ public class Profissional extends Pessoa {
 	private TipoServico tipoServico;
 	private String descricao;
 	private Double nota;
+	
+	@OneToOne
+	private Avaliacao avaliacao;
 
 	public Double getNota() {
 		return nota;

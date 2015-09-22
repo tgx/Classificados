@@ -9,27 +9,41 @@
 </h:head>
 <h:body>
 	<div>
-		<h:form id="tabela" enctype="multipart/form-data">
-			<h:dataTable value="#{profissionalMB.listaProfissional}"
-				var="profissional">
+		<h:form id="tabela">
+			<h:dataTable value="#{avaliacaoMB.listAvaliacaoProfissional}"
+				var="avaliacao">
+
 				<div>
 					<h:column>
-						<img src="img/avatar.png" />
-						<h:panelGrid columns="2" border="1">
-							<h:outputText value="Nome: " />
-							<h:outputText value="#{profissional.nome}" />
-							<h:outputText value="Telefone: " />
-							<h:outputText value="#{profissional.telefone}" />
-							<h:outputLabel value="Email: " />
-							<h:outputText value="#{profissional.email}" />
-							<h:outputLabel value="Tipo de Servico: " />
-							<h:outputText value="#{profissional.servico.nmServico}" />
+						<h:panelGrid columns="6" border="1" cellpadding="10">
+
+							<img src="img/avatar.png" />
+							<h:panelGrid columns="2" border="1">
+								<h:outputText value="Nome: " />
+								<h:outputText value="#{avaliacao.profissional.nome}" />
+								<h:outputText value="Avaliacao: " />
+								<h:outputText value="#{avaliacao.nota}" />
+								<h:outputLabel value="Email: " />
+								<h:outputText value="#{avaliacao.profissional.email}" />
+								<h:outputLabel value="Tipo de Servico: " />
+								<h:outputText value="#{avaliacao.tipoServico.nmServico}" />
+								<h:outputLabel value="Total de Votos: " />
+								<h:outputText value="#{avaliacao.qndVoto}" />
+								<h:outputLabel value="Perfil completo: " />
+
+								<h:commandLink value="#{avaliacao.profissional.nome}"
+									action="#{perfilProfissionalMB.buscaProfissional(avaliacao.profissional)}">
+									<f:setPropertyActionListener
+										target="#{perfilProfissionalMB.profissional}"
+										value="#{avaliacao.profissional}" />
+								</h:commandLink>
+
+							</h:panelGrid>
 						</h:panelGrid>
 					</h:column>
-
 				</div>
-
 			</h:dataTable>
+
 		</h:form>
 	</div>
 </h:body>

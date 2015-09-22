@@ -10,20 +10,12 @@
 	<title>Perfil de Profissional</title>
 </h:head>
 <h:body>
-	<h:form enctype="multipart/form-data">
-		<h:column>
-			<img src="img/avatar.png" height="250px" />
-		</h:column>
-		<h:panelGrid columns="2" border="2">
-				Nome: <h:outputText
-				value="#{perfilProfissionalMB.profissional.nome}" />
-				Email: <h:outputText
-				value="#{perfilProfissionalMB.profissional.email}" />
-				Telefone: <h:outputText
-				value="#{perfilProfissionalMB.profissional.telefone}" />
-				Telefone: <h:outputText
-				value="#{perfilProfissionalMB.profissional.servico.nmServico}" />
-		</h:panelGrid>
+	<h:form id="form">
+
+		<h:commandLink value="Click me" action="#{user.outcome}">
+			<f:setPropertyActionListener target="#{user.username}" value="1" />
+		</h:commandLink>
+
 	</h:form>
 </h:body>
 </html>

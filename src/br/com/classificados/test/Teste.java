@@ -21,14 +21,14 @@ public class Teste {
 
 		em.getTransaction().begin();
 
-//		servico.setNmServico("Sorveteiro");
-		servico = em.find(TipoServico.class, 1L);
+		servico.setNmServico("Diarista");
+//		servico = em.find(TipoServico.class, 1L);
 
 		pessoa.setServico(servico);
 
-		pessoa.setDescricao("Faz-se Picolé da massa");
-		pessoa.setNome("Maria");
-		pessoa.setEmail("m@hotmail.com");
+		pessoa.setDescricao("Faz-se Diária");
+		pessoa.setNome("Fernanda");
+		pessoa.setEmail("fernanda@hotmail.com");
 		pessoa.setSenha("123");
 		pessoa.setTelefone("5555-1234");
 

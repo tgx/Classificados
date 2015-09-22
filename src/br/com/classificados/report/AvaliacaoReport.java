@@ -4,14 +4,29 @@ import br.com.classificados.model.Profissional;
 import br.com.classificados.model.TipoServico;
 
 public class AvaliacaoReport {
-	private Profissional profissional;
-	private float nota;
-	private TipoServico tipoServico;
 
-	public AvaliacaoReport(Float nota, Profissional pro, TipoServico tpServico) {
+	private Profissional profissional;
+	private Double nota;
+	private TipoServico tipoServico;
+	private long qndVoto;
+
+	public AvaliacaoReport(Double nota, Profissional profissional,
+			TipoServico tipoServico, long qndVoto) {
 		this.nota = nota;
-		this.profissional = pro;
-		this.tipoServico = tpServico;
+		this.profissional = profissional;
+		this.tipoServico = tipoServico;
+		this.qndVoto = qndVoto;
+	}
+
+	public AvaliacaoReport() {
+	}
+
+	public long getQndVoto() {
+		return qndVoto;
+	}
+
+	public void setQndVoto(long qndVoto) {
+		this.qndVoto = qndVoto;
 	}
 
 	public Profissional getProfissional() {
@@ -22,11 +37,11 @@ public class AvaliacaoReport {
 		this.profissional = profissional;
 	}
 
-	public float getNota() {
+	public Double getNota() {
 		return nota;
 	}
 
-	public void setNota(float nota) {
+	public void setNota(Double nota) {
 		this.nota = nota;
 	}
 
