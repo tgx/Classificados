@@ -1,15 +1,19 @@
 package br.com.classificados.MB;
 
 import javax.faces.bean.ManagedBean;
+import javax.faces.bean.SessionScoped;
 import javax.persistence.EntityManager;
 
 import br.com.classificados.factory.JPAUtil;
 import br.com.classificados.model.Profissional;
+import br.com.classificados.model.TipoServico;
 
 @ManagedBean(name = "perfilProfissionalMB")
+@SessionScoped
 public class PerfilProfissionalMB {
 
 	Profissional profissional = new Profissional();
+	TipoServico servico = new TipoServico();
 
 	public Profissional getProfissional() {
 		return profissional;
@@ -19,28 +23,27 @@ public class PerfilProfissionalMB {
 		this.profissional = profissional;
 	}
 
-	public void buscaProfissional(Profissional p) {
+	public TipoServico getServico() {
+		return servico;
+	}
+
+	public void setServico(TipoServico servico) {
+		this.servico = servico;
+	}
+
+	public void buscaProfissional(Profissional p, TipoServico servico) {
 		EntityManager em = JPAUtil.getEntityManager();
-		Profissional pro = new Profissional();
+		em.getTransaction().begin();
+		profissional = em.find(Profissional.class, p.getIdPessoa());
+		servico = em.find(TipoServico.class, servico.getIdTipoServico());
 
-		System.out
-				.println("###################################################\n"
-						+ " P "
-						+ p.getNome()
-						+ " "
-						+ p.getIdPessoa()
-						+ "\n######################################");
-
-		pro = em.find(Profissional.class, p.getIdPessoa());
-		this.profissional = pro;
-
-		System.out
-				.println("###################################################\n"
-						+ " Pro "
-						+ profissional.getNome()
-						+ profissional.getIdPessoa()
-						+ "\n######################################");
-
+		em.getTransaction().commit();
 		em.close();
+
+		go();
+	}
+
+	public String go() {
+		return "perfilProfissional.xhtml";
 	}
 }

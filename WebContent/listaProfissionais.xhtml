@@ -16,8 +16,7 @@
 				<div>
 					<h:column>
 						<h:panelGrid columns="6" border="1" cellpadding="10">
-
-							<img src="img/avatar.png" />
+							<!-- 							<img src="img/avatar.png" /> -->
 							<h:panelGrid columns="2" border="1">
 								<h:outputText value="Nome: " />
 								<h:outputText value="#{avaliacao.profissional.nome}" />
@@ -32,10 +31,13 @@
 								<h:outputLabel value="Perfil completo: " />
 
 								<h:commandLink value="#{avaliacao.profissional.nome}"
-									action="#{perfilProfissionalMB.buscaProfissional(avaliacao.profissional)}">
+									action="#{perfilProfissionalMB.go}">
 									<f:setPropertyActionListener
 										target="#{perfilProfissionalMB.profissional}"
 										value="#{avaliacao.profissional}" />
+									<f:setPropertyActionListener
+										target="#{perfilProfissionalMB.servico}"
+										value="#{avaliacao.tipoServico}" />
 								</h:commandLink>
 
 							</h:panelGrid>

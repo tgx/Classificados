@@ -12,7 +12,7 @@
 <h:body>
 	<h:form enctype="multipart/form-data">
 		<h:column>
-			<img src="img/avatar.png" height="250px" />
+			<!-- 			<img src="img/avatar.png" height="80px" /> -->
 		</h:column>
 		<h:panelGrid columns="2" border="2">
 				Nome: <h:outputText
@@ -21,8 +21,10 @@
 				value="#{perfilProfissionalMB.profissional.email}" />
 				Telefone: <h:outputText
 				value="#{perfilProfissionalMB.profissional.telefone}" />
-				Telefone: <h:outputText
-				value="#{perfilProfissionalMB.profissional.servico.nmServico}" />
+				Serviço: <h:outputText
+				value="#{perfilProfissionalMB.servico.nmServico}" />
+				Descrição: <h:outputText
+				value="#{perfilProfissionalMB.profissional.descricao}" />
 		</h:panelGrid>
 	</h:form>
 </h:body>
