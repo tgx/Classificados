@@ -5,6 +5,7 @@ import javax.faces.bean.SessionScoped;
 import javax.persistence.EntityManager;
 
 import br.com.classificados.factory.JPAUtil;
+import br.com.classificados.model.Avaliacao;
 import br.com.classificados.model.Profissional;
 import br.com.classificados.model.TipoServico;
 
@@ -14,6 +15,15 @@ public class PerfilProfissionalMB {
 
 	Profissional profissional = new Profissional();
 	TipoServico servico = new TipoServico();
+	Avaliacao avaliacao = new Avaliacao();
+
+	public Avaliacao getAvaliacao() {
+		return avaliacao;
+	}
+
+	public void setAvaliacao(Avaliacao avaliacao) {
+		this.avaliacao = avaliacao;
+	}
 
 	public Profissional getProfissional() {
 		return profissional;

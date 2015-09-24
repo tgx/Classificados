@@ -10,12 +10,30 @@
 	<title>Perfil de Profissional</title>
 </h:head>
 <h:body>
-	<h:form id="form">
-
-		<h:commandLink value="Click me" action="#{user.outcome}">
-			<f:setPropertyActionListener target="#{user.username}" value="1" />
-		</h:commandLink>
-
+	<h:form enctype="multipart/form-data">
+		<h:column>
+			<!-- 			<img src="img/avatar.png" height="80px" /> -->
+		</h:column>
+		<h:panelGrid columns="2" border="2">
+				Nome: <h:outputText
+				value="#{perfilProfissionalMB.profissional.nome}" />
+				Email: <h:outputText
+				value="#{perfilProfissionalMB.profissional.email}" />
+				Telefone: <h:outputText
+				value="#{perfilProfissionalMB.profissional.telefone}" />
+				Serviço: <h:outputText
+				value="#{perfilProfissionalMB.servico.nmServico}" />
+				Descrição: <h:outputText
+				value="#{perfilProfissionalMB.profissional.descricao}" />
+				Nota: <h:outputText value="#{avaliacao.nota}" />
+				Avaliar: <h:selectOneRadio>
+				<f:selectItem itemLabel="1" itemValue="1" />
+				<f:selectItem itemLabel="2" itemValue="2" />
+				<f:selectItem itemLabel="3" itemValue="3" />
+				<f:selectItem itemLabel="4" itemValue="4" />
+				<f:selectItem itemLabel="5" itemValue="5" />
+			</h:selectOneRadio>
+		</h:panelGrid>
 	</h:form>
 </h:body>
 </html>

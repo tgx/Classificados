@@ -38,6 +38,9 @@
 									<f:setPropertyActionListener
 										target="#{perfilProfissionalMB.servico}"
 										value="#{avaliacao.tipoServico}" />
+									<f:setPropertyActionListener
+										target="#{perfilProfissionalMB.profissional.nota}"
+										value="#{avaliacao.nota}" />
 								</h:commandLink>
 
 							</h:panelGrid>
